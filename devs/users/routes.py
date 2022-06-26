@@ -202,7 +202,7 @@ def list_users():
     page = request.args.get('page', 1, type=int)
 
     page_users = User.query \
-        .filter_by(is_active=True) \
+        .filter_by(has_been_confirmed=True) \
         .order_by(User.pseudo.asc()) \
         .paginate(page=page, per_page=current_app.config['USERS_PER_PAGE'])
 
