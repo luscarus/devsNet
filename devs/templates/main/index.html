@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <!-- Header-->
+    <header class="{% if current_user.is_authenticated %} bg-dark {% else %} bg-white {% endif %} py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="text-center my-5">
+                        <h1 class="display-5 fw-bolder {% if current_user.is_authenticated %} text-white {% else %} text-black {% endif %} mb-2">{{ WEBSITE_NAME }}</h1>
+                        <p class="lead {% if current_user.is_authenticated %} text-white-50 {% else %} text-black-50 {% endif %} mb-4">le réseau social des développeurs,</p>
+                        <p class="lead {% if current_user.is_authenticated %} text-white-50 {% else %} text-black-50 {% endif %} mb-4">
+                            Grâce à cette plateforme, vous avez la possibilité de tisser des liens d'amitiés avec d'autres développeurs,
+                            échanger des codes sources, recevoir de l'aide si vous rencontrez des problèmes sur l'un de vos projets
+                            et bien plus encore!
+                        </p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                            {% if current_user.is_authenticated %}
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{ url_for('users.profile', id=current_user.id) }}">{{ _('Ton compte') }}</a>
+                            {% else %}
+                                <a class="btn btn-outline-primary btn-lg px-4 me-sm-3" href="{{ url_for('users.register') }}">{{ _("Qu'attendez-vous?") }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Features section-->
+{% endblock %}

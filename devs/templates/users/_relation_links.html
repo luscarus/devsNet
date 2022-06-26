@@ -1,0 +1,17 @@
+{% if relation_link_to_display(current_user.id, user.id) == "cancel_relation_link" %}
+	<p>{{ _("Demande d'amitié déja envoyée.") }}<a href="{{ url_for('users.delete_friend', id=user.id) }}" class="btn btn-outline-warning">{{ _('Annuler la demande') }}</a></p>
+
+{% elif relation_link_to_display(current_user.id, user.id) == "accept_reject_relation_link" %}
+	<a href="{{ url_for('users.accept_friend_request', id=user.id) }}" class="btn btn-outline-primary">{{ _("Accepter") }}</a>
+	<a href="{{ url_for('users.delete_friend', id=user.id) }}" class="btn btn-outline-warning">{{ _("Décliner") }}</a>
+
+
+{% elif relation_link_to_display(current_user.id, user.id) == "delete_relation_link" %}
+	{{ _("Vous êtes déja amis.") }}
+	<a href="{{ url_for('users.delete_friend', id=user.id) }}" class="btn btn-outline-danger float-right">{{ _("Retirer de ma liste d'amis") }}</a>
+
+
+{% elif relation_link_to_display(current_user.id, user.id) == "add_relation_link" %}
+	<a href="{{ url_for('users.add_friend', id=user.id) }}" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i> {{ _('Ajouter comme ami') }}</a>
+
+{% endif %}

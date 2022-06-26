@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>{{ _('Liste des utilisateurs') }}</h1>
+    {% if page_users.items|length != 0 %}
+        {% for row in page_users.items|batch(4) %}
+            <div class="row users">
+                {% for user in row %}
+                    <div class="col-md-3 user-block">
+                        <a href="{{ url_for('users.profile', id=user.id) }}">
+                            <img class="avatar rounded-circle" src="{{ user.set_avatar(70) }}"
+                                 alt="image de profil de {{ user.pseudo }}">
+                        </a>
+                        <h4 class="user-block-username">
+                            <a href="{{ url_for('users.profile', id=user.id) }}">
+                                {{ user.pseudo }}
+                            </a>
+                        </h4>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        {# Pagination #}
+            <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not page_users.has_prev %} disabled {% endif %}">
+                    <a class="page-link" href="{{ url_for('users.list_users', page=page_users.prev_num) }}"
+                       aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% for page_num in page_users.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                    {% if page_num %}
+                        <li class="page-item {% if page_users.page == page_num  %} active {% endif %}">
+                            <a class="page-link" href="{{ url_for('users.list_users', page=page_num) }}">
+                                {{ page_num }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                <li class="page-item {% if not page_users.has_next %} disabled {% endif %}">
+                    <a class="page-link" href="{{ url_for('users.list_users', page=page_users.next_num) }}"
+                       aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    {% else %}
+        <p class="mt-5 h1 text-center">{{ _('Aucun utilisateur pour le moment') }}</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

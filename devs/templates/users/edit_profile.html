@@ -1,0 +1,140 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    {% if user == current_user %}
+    <div class="container">
+        <div class="row justify-content-center mt-3 mb-5">
+            {% include 'layouts/partials/_errors.html' %}
+            <div class="col-md-6 md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title text-center">{{ _('Completer mon profil') }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <form data-parsley-validate method="post" enctype="multipart/form-data" novalidate autocomplete="off">
+                            {{ form.hidden_tag() }}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="avatar" class="">{{ _('Changer mon avatar') }}
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div>
+                                            <img id="preview"
+                                                 src="
+                                                        {% if current_user.profile_img %}
+                                                            {{ url_for('static', filename='img/users/profile_pics/' ~ current_user.id ~ '/' ~ current_user.profile_img) }}
+                                                        {% else %}
+                                                            {{ current_user.set_avatar(100) }}
+                                                        {% endif %}"
+                                                 class="rounded-circle avatar-md mb-3">
+                                        </div>
+                                        <div class="custom-file">
+                                            {{ form.profile_img(class='custom-file-input') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">{{ _('Nom') }}<span class="text-danger">*</span></label>
+                                        {{ form.name(class='form-control') }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="city">{{ _('Ville') }}<span class="text-danger">*</span></label>
+                                        {{ form.city(class='form-control') }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="country">{{ _('Pays') }}<span class="text-danger">*</span></label>
+                                        {{ form.country(class='form-control') }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="sex">{{ _('Sexe') }}<span class="text-danger">*</span></label>
+                                        {{ form.sex(class='form-control') }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="twitter">Twitter<span class="text-danger">*</span></label>
+                                        {{ form.twitter(class='form-control') }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="gitHub">Github<span class="text-danger">*</span></label>
+                                        {{ form.github(class='form-control') }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            {{ form.available_for_hiring(class='form-check-input') }}
+                                            <label class="form-check-label">{{ _('Disponible pour emploi ?') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="bio">{{ _('Biographie') }}<span class="text-danger">*</span></label>
+                                        {{ form.bio(class='form-control', cols='30', rows='10', placeholder=_('Je suis
+                                        amoureux de la programmation...')) }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="submit" name="update" class="btn btn-outline-primary mt-2" value="{{ _('Valider') }}">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block custom_script %}
+
+  {# Parsley Js #}
+    <script src="{{ url_for('static', filename='libraries/parsley/parsley.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='libraries/parsley/i18n/' ~ g.locale ~ '.js') }}"></script>
+
+    <script>
+		$(() => {
+	    $('input[type="file"]').on('change', (e) => {
+	        let that = e.currentTarget;
+	        if (that.files && that.files[0]) {
+	            $(that).next('.custom-file-label').html(that.files[0].name)
+	            let reader = new FileReader();
+	            reader.onload = (e) => {
+	                $('#preview').attr('src', e.target.result);
+	            }
+	            reader.readAsDataURL(that.files[0]);
+	        	}
+			});
+		});
+	</script>
+
+{% endblock %}

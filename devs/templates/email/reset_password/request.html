@@ -1,0 +1,20 @@
+<p>
+	{{ _('Cher') }} {{ user.name }}
+</p>
+
+<p>
+	{{ _('Pour réinitialiser votre mot de passe') }}, 
+	<a href="{{ reset_password_url }}">{{ _('Cliquez ici') }}</a>
+</p>
+<p>
+	{{ _("En outre, vous pouvez coller le lien suivant dans la barre d'adresse de votre navigateur:") }}
+</p>
+<p>{{ reset_password_url }}</p>
+
+<p>
+	{{ _("Si vous n'avez pas fait cette demande, ignorez simplement cet e-mail et aucun changement ne sera effectué.") }}
+
+</p>
+
+<p>{{ _('Sincèrement') }}, </p>
+<p>{{ _("L'équipe DevsNet") }}</p>

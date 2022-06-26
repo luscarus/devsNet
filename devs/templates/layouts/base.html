@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+    {% set WEBSITE_NAME="Devs Network" %}
+
+    {% include 'layouts/partials/_head.html' %}
+
+    <body>
+        <!-- Responsive navbar-->
+        {% include 'layouts/partials/_nav_bar.html' %}
+
+        <!-- show flash messages-->
+        {% include 'layouts/partials/_flash_messages.html' %}
+
+        <div id="main-content">
+           <!-- Dynamic app content-->
+            {% block content %}{% endblock %}
+        </div>
+
+        <!-- Footer -->
+        {% include 'layouts/partials/_footer.html' %}
+
+        <!-- Core theme JS-->
+        {% include 'layouts/partials/_script.html' %}
+        {{ moment.include_moment() }}
+        {{ moment.lang(g.locale) }}
+        {% block custom_script %}{% endblock %}
+    </body>
+</html>

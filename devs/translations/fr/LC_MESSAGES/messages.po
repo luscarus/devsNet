@@ -1,0 +1,693 @@
+# French translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-12-05 14:13+0000\n"
+"PO-Revision-Date: 2021-10-11 01:01+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: devs/__init__.py:24
+msgid "Connectez-vous pour acceder a cette page"
+msgstr ""
+
+#: devs/translate.py:11
+msgid "Erreur : le service de traduction n'est pas configuré."
+msgstr ""
+
+#: devs/translate.py:21
+msgid "Erreur : la traduction a échoué"
+msgstr ""
+
+#: devs/codes/forms.py:9
+msgid "ecrivez du code"
+msgstr ""
+
+#: devs/codes/routes.py:32
+msgid "Code source enregistré"
+msgstr ""
+
+#: devs/posts/forms.py:8
+msgid "écriver quelque chose"
+msgstr ""
+
+#: devs/templates/codes/share_code.html:8
+msgid "Entrer votre code ici"
+msgstr ""
+
+#: devs/templates/codes/share_code.html:10
+msgid "Tout effacer!"
+msgstr ""
+
+#: devs/templates/codes/share_code.html:11
+msgid "Enregistrer"
+msgstr ""
+
+#: devs/templates/codes/show_code.html:8
+msgid "Cloner"
+msgstr ""
+
+#: devs/templates/codes/show_code.html:9
+msgid "Nouveau"
+msgstr ""
+
+#: devs/templates/email/reset_password/request.html:2
+msgid "Cher"
+msgstr ""
+
+#: devs/templates/email/reset_password/request.html:6
+msgid "Pour réinitialiser votre mot de passe"
+msgstr ""
+
+#: devs/templates/email/reset_password/request.html:7
+msgid "Cliquez ici"
+msgstr ""
+
+#: devs/templates/email/reset_password/request.html:10
+msgid ""
+"En outre, vous pouvez coller le lien suivant dans la barre d'adresse de "
+"votre navigateur:"
+msgstr ""
+
+#: devs/templates/email/reset_password/request.html:15
+msgid ""
+"Si vous n'avez pas fait cette demande, ignorez simplement cet e-mail et "
+"aucun changement ne sera effectué."
+msgstr ""
+
+#: devs/templates/email/reset_password/request.html:19
+msgid "Sincèrement"
+msgstr ""
+
+#: devs/templates/email/reset_password/request.html:20
+msgid "L'équipe DevsNet"
+msgstr ""
+
+#: devs/templates/errors/403.html:5
+msgid "Accès refusé"
+msgstr ""
+
+#: devs/templates/errors/403.html:6
+msgid "S'il vous plaît, vérifiez votre compte et réessayez"
+msgstr ""
+
+#: devs/templates/errors/404.html:5
+msgid "Oops, Aucune page trouvée"
+msgstr ""
+
+#: devs/templates/errors/404.html:6
+msgid "Cette page n'existe pas."
+msgstr ""
+
+#: devs/templates/errors/500.html:5
+msgid "Quelque chose ne va pas"
+msgstr ""
+
+#: devs/templates/errors/500.html:6
+msgid "Nous rencontrons quelques problèmes. S'il vous plaît réessayez plutard"
+msgstr ""
+
+#: devs/templates/layouts/partials/_errors.html:6
+#, python-format
+msgid "%(error)s"
+msgstr ""
+
+#: devs/templates/layouts/partials/_flash_messages.html:11
+#, python-format
+msgid "%(message)s"
+msgstr ""
+
+#: devs/templates/layouts/partials/_nav_bar.html:11
+msgid "Développeurs"
+msgstr ""
+
+#: devs/templates/layouts/partials/_nav_bar.html:24
+#, python-format
+msgid "Image de profil de %(pseudo)s!"
+msgstr ""
+
+#: devs/templates/layouts/partials/_nav_bar.html:30
+msgid "Mon profil"
+msgstr ""
+
+#: devs/templates/layouts/partials/_nav_bar.html:35
+msgid "Editer mon profil"
+msgstr ""
+
+#: devs/templates/layouts/partials/_nav_bar.html:40
+msgid "Changer mon mot de passse"
+msgstr ""
+
+#: devs/templates/layouts/partials/_nav_bar.html:45
+msgid "Partager"
+msgstr ""
+
+#: devs/templates/layouts/partials/_nav_bar.html:51
+msgid "Deconnexion"
+msgstr ""
+
+#: devs/templates/layouts/partials/_nav_bar.html:59
+#: devs/templates/users/register.html:44
+msgid "Inscription"
+msgstr ""
+
+#: devs/templates/layouts/partials/_nav_bar.html:64
+#: devs/templates/users/login.html:34
+msgid "Connexion"
+msgstr ""
+
+#: devs/templates/main/index.html:19
+msgid "Ton compte"
+msgstr ""
+
+#: devs/templates/main/index.html:21
+msgid "Qu'attendez-vous?"
+msgstr ""
+
+#: devs/templates/posts/_post.html:34
+msgid "Traduire"
+msgstr ""
+
+#: devs/templates/posts/_post.html:42
+msgid "Je n'aime plus"
+msgstr ""
+
+#: devs/templates/posts/_post.html:46
+msgid "J'aime"
+msgstr ""
+
+#: devs/templates/posts/_post.html:55
+msgid "et"
+msgstr ""
+
+#: devs/templates/posts/_post.html:55
+msgid "personnes ont aimé cela."
+msgstr ""
+
+#: devs/templates/posts/_post.html:55
+msgid "autre personne a aimé cela."
+msgstr ""
+
+#: devs/templates/users/_relation_links.html:2
+msgid "Demande d'amitié déja envoyée."
+msgstr ""
+
+#: devs/templates/users/_relation_links.html:2
+msgid "Annuler la demande"
+msgstr ""
+
+#: devs/templates/users/_relation_links.html:5
+#: devs/templates/users/friend_request_sent.html:14
+msgid "Accepter"
+msgstr ""
+
+#: devs/templates/users/_relation_links.html:6
+msgid "Décliner"
+msgstr ""
+
+#: devs/templates/users/_relation_links.html:10
+msgid "Vous êtes déja amis."
+msgstr ""
+
+#: devs/templates/users/_relation_links.html:11
+msgid "Retirer de ma liste d'amis"
+msgstr ""
+
+#: devs/templates/users/_relation_links.html:15
+msgid "Ajouter comme ami"
+msgstr ""
+
+#: devs/templates/users/change_password.html:12
+msgid "Changer de mot de passe"
+msgstr ""
+
+#: devs/templates/users/change_password.html:21
+msgid "Mot de passe actuel"
+msgstr ""
+
+#: devs/templates/users/change_password.html:26
+msgid "Nouveau mot de passe"
+msgstr ""
+
+#: devs/templates/users/change_password.html:31
+msgid "Confirmer votre nouveau mot de passe"
+msgstr ""
+
+#: devs/templates/users/change_password.html:35
+#: devs/templates/users/edit_profile.html:106
+msgid "Valider"
+msgstr ""
+
+#: devs/templates/users/edit_profile.html:12
+msgid "Completer mon profil"
+msgstr ""
+
+#: devs/templates/users/edit_profile.html:20
+msgid "Changer mon avatar"
+msgstr ""
+
+#: devs/templates/users/edit_profile.html:43
+msgid "Nom"
+msgstr ""
+
+#: devs/templates/users/edit_profile.html:49
+msgid "Ville"
+msgstr ""
+
+#: devs/templates/users/edit_profile.html:58
+msgid "Pays"
+msgstr ""
+
+#: devs/templates/users/edit_profile.html:64
+msgid "Sexe"
+msgstr ""
+
+#: devs/templates/users/edit_profile.html:90
+msgid "Disponible pour emploi ?"
+msgstr ""
+
+#: devs/templates/users/edit_profile.html:99
+msgid "Biographie"
+msgstr ""
+
+#: devs/templates/users/edit_profile.html:100
+msgid ""
+"Je suis\n"
+"                                        amoureux de la programmation..."
+msgstr ""
+
+#: devs/templates/users/friend_request_accepted.html:13
+msgid "a accepté votre demande d'amitié"
+msgstr ""
+
+#: devs/templates/users/friend_request_sent.html:13
+msgid "vous a envoyé une demande d'amitié"
+msgstr ""
+
+#: devs/templates/users/friend_request_sent.html:15
+msgid "Decliner"
+msgstr ""
+
+#: devs/templates/users/list_users.html:6
+msgid "Liste des utilisateurs"
+msgstr ""
+
+#: devs/templates/users/list_users.html:52
+msgid "Aucun utilisateur pour le moment"
+msgstr ""
+
+#: devs/templates/users/login.html:7
+msgid "Connectez vous!"
+msgstr ""
+
+#: devs/templates/users/login.html:16
+msgid "Identifiant"
+msgstr ""
+
+#: devs/templates/users/login.html:22
+msgid "Mot de passe"
+msgstr ""
+
+#: devs/templates/users/login.html:30
+msgid "Garder ma session active"
+msgstr ""
+
+#: devs/templates/users/login.html:38
+msgid "Vous avez oublié votre mot de passe?"
+msgstr ""
+
+#: devs/templates/users/notifications.html:6
+msgid "Vos notifications"
+msgstr ""
+
+#: devs/templates/users/register.html:22
+msgid "Pseudo:"
+msgstr ""
+
+#: devs/templates/users/register.html:28
+msgid "Adresse Email:"
+msgstr ""
+
+#: devs/templates/users/register.html:34
+msgid "Mot de passe:"
+msgstr ""
+
+#: devs/templates/users/register.html:40
+msgid "Confirmer votre mot de passe:"
+msgstr ""
+
+#: devs/templates/users/reset_password.html:25
+msgid "Réinitialisez le mot de passe"
+msgstr ""
+
+#: devs/templates/users/reset_request_password.html:8
+msgid "Réinitialisez votre mot de passe"
+msgstr ""
+
+#: devs/templates/users/reset_request_password.html:13
+msgid ""
+"Entrez votre adresse e-mail et nous\n"
+"        vous enverrons un lien pour réinitialiser\n"
+"        votre mot de passe."
+msgstr ""
+
+#: devs/templates/users/reset_request_password.html:27
+msgid "Envoyer un e-mail de réinitialisation de mot de passe"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:9
+msgid "Cliquez pour confirmer votre compte"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:17
+msgid "amis"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:17
+msgid "ami"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:47
+msgid "Voir sur Google Maps"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:64
+msgid "Disponible pour emploi"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:66
+msgid "Non disponible pour emploi"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:72
+#, python-format
+msgid "Petite biographie de %(username)s!"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:79
+msgid "Aucune biographie pour le moment..."
+msgstr ""
+
+#: devs/templates/users/user_profile.html:94
+msgid "statut:"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:95
+msgid "Alors quoi de neuf?"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:100
+msgid "Publier"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:110
+msgid " Cet utilisateur n'a encore rien poste "
+msgstr ""
+
+#: devs/templates/users/user_profile.html:133
+msgid "Êtes-vous sûr ?"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:134
+msgid "Voulez-vous vraiment supprimer cette publication ?"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:136
+msgid "Annuler"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:138
+msgid "Oui"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:143
+msgid "Supprimé"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:144
+msgid "Votre publication a été supprimée"
+msgstr ""
+
+#: devs/templates/users/user_profile.html:188
+msgid "Erreur : impossible de traduire la publication."
+msgstr ""
+
+#: devs/users/email.py:10
+msgid "[Devs Network] - Confirmez votre compte"
+msgstr ""
+
+#: devs/users/email.py:24
+msgid "[Devs Network] - Réinitialisation de mot de passe"
+msgstr ""
+
+#: devs/users/forms.py:13 devs/users/forms.py:61
+msgid "entrer un nom"
+msgstr ""
+
+#: devs/users/forms.py:15
+msgid "entrer un pseudo"
+msgstr ""
+
+#: devs/users/forms.py:15
+msgid ""
+"Pseudo trop court ou trop long! (Minimum 3 caractères) (Maximum 20 "
+"caractères)"
+msgstr ""
+
+#: devs/users/forms.py:18 devs/users/forms.py:97
+msgid "entrer une adresse email valide"
+msgstr ""
+
+#: devs/users/forms.py:19 devs/users/forms.py:98
+msgid "Adresse email invalide"
+msgstr ""
+
+#: devs/users/forms.py:21
+msgid "entrer un mot de passe"
+msgstr ""
+
+#: devs/users/forms.py:22 devs/users/forms.py:79 devs/users/forms.py:110
+msgid "Mot de passe trop court! (Minimum 6 caractères)"
+msgstr ""
+
+#: devs/users/forms.py:30
+msgid "confirmer votre mot de passe"
+msgstr ""
+
+#: devs/users/forms.py:32 devs/users/forms.py:88 devs/users/forms.py:113
+msgid "les deux mots de passe ne concordent pas"
+msgstr ""
+
+#: devs/users/forms.py:37
+msgid "Pseudo déja utilisé"
+msgstr ""
+
+#: devs/users/forms.py:42
+msgid "Adresse e-mail déja utilisée"
+msgstr ""
+
+#: devs/users/forms.py:47
+msgid "entrer votre adresse email ou votre pseudo"
+msgstr ""
+
+#: devs/users/forms.py:49 devs/users/forms.py:109
+msgid "entrer un mot de passe valide"
+msgstr ""
+
+#: devs/users/forms.py:56
+msgid "Il n'y a aucun utilisateur avec cet identifiant "
+msgstr ""
+
+#: devs/users/forms.py:62
+msgid "renseigner la ville"
+msgstr ""
+
+#: devs/users/forms.py:63
+msgid "renseigner le pays"
+msgstr ""
+
+#: devs/users/forms.py:64
+msgid "Homme"
+msgstr ""
+
+#: devs/users/forms.py:64
+msgid "Femme"
+msgstr ""
+
+#: devs/users/forms.py:65
+msgid "choisissez le sexe"
+msgstr ""
+
+#: devs/users/forms.py:71
+msgid "Type de fichier invalide. formats supportés <png, gif, jpeg, jpg>"
+msgstr ""
+
+#: devs/users/forms.py:77
+msgid "entrer votre mot de passe actuel"
+msgstr ""
+
+#: devs/users/forms.py:81
+msgid "entrer le nouveau mot de passe"
+msgstr ""
+
+#: devs/users/forms.py:83
+msgid "Mot de passe trop court! (Minimum 6 caractères"
+msgstr ""
+
+#: devs/users/forms.py:86
+msgid "confirmer le nouveau mot de passe"
+msgstr ""
+
+#: devs/users/forms.py:92
+msgid "Le mot de passe actuel indiqué est incorrect"
+msgstr ""
+
+#: devs/users/forms.py:103
+msgid "Il n'y a pas de compte avec cet e-mail. Vous devez d'abord vous inscrire"
+msgstr ""
+
+#: devs/users/routes.py:43
+msgid "Merci d'avoir crée un compte!, vous pouvez maintenant vous connecter"
+msgstr ""
+
+#: devs/users/routes.py:55
+msgid "Un e-mail a été envoyé avec des instructions pour confirmer votre compte"
+msgstr ""
+
+#: devs/users/routes.py:58
+msgid "Votre adresse e-mail a déja été confirmée"
+msgstr ""
+
+#: devs/users/routes.py:61
+msgid "S'il vous plait, connectez-vous pour confirmer votre compte"
+msgstr ""
+
+#: devs/users/routes.py:69
+msgid "Le lien a expiré"
+msgstr ""
+
+#: devs/users/routes.py:74
+msgid "Merci d'avoir confirmé votre adresse e-mail"
+msgstr ""
+
+#: devs/users/routes.py:89
+msgid "Utilisateur inconnu ou mauvais mot de passe"
+msgstr ""
+
+#: devs/users/routes.py:144
+msgid "Votre publication est maintenant en ligne !"
+msgstr ""
+
+#: devs/users/routes.py:190
+msgid "Votre profil a ete mis a jour"
+msgstr ""
+
+#: devs/users/routes.py:221
+msgid "Félicitations, votre mot de passe a été mis à jour"
+msgstr ""
+
+#: devs/users/routes.py:236
+msgid "Cet utilisateur vous a deja envoyé une demande d'amitié"
+msgstr ""
+
+#: devs/users/routes.py:243
+msgid "Votre demande d'amitié a été envoyée avec success"
+msgstr ""
+
+#: devs/users/routes.py:261
+msgid "Vous n'êtes plus ami avec cet utilisateur"
+msgstr ""
+
+#: devs/users/routes.py:279
+msgid "Vous êtes à présent ami avec cet utilisateur"
+msgstr ""
+
+#: devs/users/routes.py:309
+msgid "la publication a été supprimée"
+msgstr ""
+
+#: devs/users/routes.py:350
+msgid ""
+"Un e-mail a été envoyé avec des instructions pour réinitialiser votre mot"
+" de passe"
+msgstr ""
+
+#: devs/users/routes.py:364
+msgid "Votre jeton est invalide ou a expiré"
+msgstr ""
+
+#: devs/users/routes.py:371
+msgid "Votre mot de passe a été mis à jour!"
+msgstr ""
+
+#~ msgid "Accueil"
+#~ msgstr ""
+
+#~ msgid "Mon Profil"
+#~ msgstr ""
+
+#~ msgid "Choisissez une image"
+#~ msgstr ""
+
+#~ msgid "Je suis amoureux de la programmation..."
+#~ msgstr ""
+
+#~ msgid "[Devs Network] Activez votre compte"
+#~ msgstr ""
+
+#~ msgid "Un mail d'activation a été envoyé a votre adresse email"
+#~ msgstr ""
+
+#~ msgid "le lien a expire"
+#~ msgstr ""
+
+#~ msgid "votre compte a été bien activé"
+#~ msgstr ""
+
+#~ msgid "Dear"
+#~ msgstr ""
+
+#~ msgid "To activate your account"
+#~ msgstr ""
+
+#~ msgid "click here"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Alternatively, you can paste the "
+#~ "following link in your browser's address"
+#~ " bar:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you have not created an account"
+#~ " on our web, please simply ignore "
+#~ "this message."
+#~ msgstr ""
+
+#~ msgid "Sincerely"
+#~ msgstr ""
+
+#~ msgid "The DevsNet Team"
+#~ msgstr ""
+
+#~ msgid "Error: the translation service is not configured."
+#~ msgstr ""
+
+#~ msgid "Error: The translation service failed"
+#~ msgstr ""
+
+#~ msgid "Error: Could not contact server."
+#~ msgstr ""
+

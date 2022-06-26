@@ -1,0 +1,31 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Reseau social pour developpeurs" />
+    <meta name="author" content="Kekeli ATHOU MUATA" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+
+    {% block title %}
+		{% if title %}
+			<title>{{ title }} - {{ WEBSITE_NAME }}</title>
+		{% else %}
+			<title>{{ WEBSITE_NAME }} -Simple, Rapide, Efficace!</title>
+		{% endif %}
+	{% endblock %}
+
+    <!-- Bootstrap Css Core-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.1/pulse/bootstrap.min.css" integrity="sha512-G+hJSSbMseD7djQrdXKs1AS+zcYpAdBYQCyua1SfZkHO8Il8Y3SFdG21cbIzjDu8vR1/KGM0iOY4Mt/b8K6QBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- App main css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}"/>
+
+    <!-- Font awesome cdn -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- Prettify css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='libraries/prettify/prettify.css') }}"/>
+
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/fbe3974463.js" crossorigin="anonymous"></script>
+</head>

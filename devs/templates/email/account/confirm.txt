@@ -1,0 +1,12 @@
+{{ _('Cher') }} {{ user.name }},
+
+{{ _('Pour activer votre compte') }}, {{ _('Cliquez ici') }}
+
+{{ url_confirm }}
+
+{{ _("Si vous n'avez pas créé de compte sur notre site, veuillez simplement ignorer ce message.") }}
+
+{{ _('Sincèrement') }},
+
+
+{{ _("L'équipe DevsNet") }}

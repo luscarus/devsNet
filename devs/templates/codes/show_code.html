@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+  <div id="main-content-share-code">
+    <pre class="prettyprint linenums">{{ code.code }}</pre>
+    <div class="btn-group nav-code">
+        <a href="{{ url_for('codes.clone', id=code.id) }}" class="btn btn-warning">{{ _('Cloner') }}</a>
+        <a href="{{ url_for('codes.share_code') }}" class="btn btn-primary">{{ _('Nouveau') }}</a>
+      </div>
+  </div>
+
+{% endblock %}
+
+{% block custom_script %}
+
+    {# Pretiffy Js  #}
+    <script src="{{ url_for('static', filename='libraries/prettify/prettify.js') }}"></script>
+    <script>
+        prettyPrint();
+    </script>
+{% endblock %}

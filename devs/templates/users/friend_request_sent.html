@@ -1,0 +1,15 @@
+<a href="{{ url_for('users.profile', id=notification.user_id) }}">
+	<img alt="image de profil de {{ notification.user.pseudo }}"
+         class="rounded-circle avatar-xs"
+         src="
+		        {% if notification.user_id.profile_img %}
+		          {{ url_for('static', filename='img/users/profile_pics/' ~ notification.user_id ~ '/' ~ notification.user.profile_img) }}
+		        {% else %}
+		            {{ notification.user.set_avatar(40) }}
+		        {% endif %}">
+    {{ notification.user.pseudo }}
+</a>
+
+{{ _("vous a envoyé une demande d'amitié") }} {{ moment(notification.created_at).fromNow() }}
+<a class="btn btn-outline-primary" href="{{ url_for('users.accept_friend_request', id=notification.user_id) }}">{{ _('Accepter') }}</a>
+<a class="btn btn-outline-warning" href="{{ url_for('users.delete_friend', id=notification.user_id) }}">{{ _('Decliner') }}</a>

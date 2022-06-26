@@ -1,0 +1,10 @@
+{{ _('Cher') }} {{ user.name }}
+
+{{ _("Pour réinitialiser votre mot de passe, copiez le lien suivant dans la barre d'adresse de votre navigateur: ") }}
+{{ reset_password_url }}
+
+{{ _("Si vous n'avez pas fait cette demande, ignorez simplement cet e-mail et aucun changement ne sera effectué") }}
+
+{{ _('Sincèrement') }},
+
+{{ _("L'équipe DevsNet") }}

@@ -1,0 +1,65 @@
+<article class="media status-media" id="post{{ post.id }}">
+    <div class="pull-left">
+        <img src="
+                    {% if post.author.profile_img %}
+                      {{ url_for('static', filename='img/users/profile_pics/' ~ post.author.id ~ '/' ~ post.author.profile_img) }}
+                    {% else %}
+                      {{ post.author.set_avatar(25) }}
+                    {% endif %}
+                    "
+             alt="{{ post.author.pseudo }}"
+             class="rounded-circle">
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">{{ post.author.pseudo }}</h4>
+        <p>
+            <i class="fa fa-clock"></i>
+            {{ moment(post.created_at).fromNow(refresh=True) }}
+            
+            {% if post.author == current_user %}
+            <a data-confirm="Voulez-vous vraiment supprimer cette publication ?" href="{{ url_for('users.delete_post', id=post.id) }}"><i class="fa fa-trash"></i> Supprimer</a>
+            {% endif %}
+        </p>
+
+        {% for line in post.content.split('\n') %}
+            <br />{{ line }}
+        {% endfor %}
+        {% if post.language and post.language != g.locale %}
+            <br><br>
+            <span id="translation{{ post.id }}">
+                <a href="javascript:translate(
+                                '{{ post.content }}',
+                                '#translation{{ post.id }}',
+                                '{{ post.language }}',
+                                '{{ g.locale }}');">{{ _('Traduire') }}</a>
+            </span>
+        {% endif %}
+        <hr>
+
+        <p>
+            {% if current_user.has_already_liked_post(post.id) %}
+                <a id="unlike{{ post.id }}" class="like" data-action="unlike" class="like" href="{{ url_for('users.unlike_post', id=post.id)}}">
+                    {{ _("Je n'aime plus") }}
+                </a>
+            {% else %}
+                <a id="like{{ post.id }}" class="like" data-action="like" data-post-id="{{ post.id }}" href="{{ url_for('users.like_post', id=post.id) }}">
+                   {{ _("J'aime") }}
+                </a>
+            {% endif %}
+        </p>
+        <div id="likers_{{ post.id }}">
+            {% if post.get_likes_count() > 3 %}
+                {% for liker in post.get_likers() %}
+                    <a href="{{ url_for('users.profile',id=liker.id) }}">{{ liker.pseudo }}</a>, 
+                {% endfor %}
+                {{ _('et') }} {{ post.get_likes_count() - post.get_likers()|length }} {{ _('personnes ont aimé cela.') if post.get_likes_count() - post.get_likers()|length > 1 else _('autre personne a aimé cela.') }}
+            {% else%}            
+                {% for liker in post.get_likers() %}
+                    <a href="{{ url_for('users.profile',id=liker.id) }}">{{ liker.pseudo }}</a>, 
+                {% endfor %}
+                {{ '' if post.get_likes_count()  == 0 else ('ont aimé cela.') }}
+            {% endif %}
+
+        </div>
+    </div>
+</article>

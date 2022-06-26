@@ -1,0 +1,58 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+  <div class="container">
+
+    <h1 class="lead text-center">Devenez dès à présent membre!</h1>
+
+    {% include 'layouts/partials/_errors.html' %}
+
+    <form data-parsley-validate method="post" class="card card-body bg-light col-md-6 offset-md-3" autocomplete="off" novalidate>
+      {{ form.hidden_tag() }}
+
+      {# Name field #}
+      <div class="form-group">
+        <label class="form-control-label" for="name">Nom:</label>
+        {{ form.name(class='form-control') }}
+      </div>
+
+      {# Pseudo field #}
+      <div class="form-group">
+        <label class="form-control-label" for="pseudo">{{ _('Pseudo:') }}</label>
+        {{ form.pseudo(class='form-control', **{'data-parsley-minLength': '3'}) }}
+      </div>
+
+      {# Email field #}
+      <div class="form-group">
+        <label class="form-control-label" for="email">{{ _('Adresse Email:') }}</label>
+        {{ form.email(class='form-control', **{'data-parsley-trigger': 'keypress'}) }}
+      </div>
+
+      {# Password field #}
+      <div class="form-group">
+        <label class="form-control-label" for="password">{{ _('Mot de passe:') }}</label>
+        {{ form.password(class='form-control') }}
+      </div>
+
+      {# Password Confirmation field #}
+      <div class="form-group">
+        <label class="form-control-label" for="password_confirm">{{ _('Confirmer votre mot de passe:') }}</label>
+        {{ form.password_confirm(class='form-control', **{'data-parsley-equalto': '#password'}) }}
+      </div>
+
+      <input class="btn btn-primary col-md-3 mt-2" name="register" type="submit" value="{{ _('Inscription') }}">
+
+    </form>
+
+  </div>
+
+{% endblock %}
+
+{% block custom_script %}
+
+  {# Parsley Js #}
+    <script src="{{ url_for('static', filename='libraries/parsley/parsley.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='libraries/parsley/i18n/' ~ g.locale ~ '.js') }}"></script>
+
+{% endblock %}

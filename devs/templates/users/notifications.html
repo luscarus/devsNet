@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+	
+	<div class="container">
+		<h1>{{ _('Vos notifications') }}</h1>
+		{% if notifications|length > 0 %}
+		<ul class="list-group">
+			{% for notification in notifications %}
+		  	<li class="list-group-item {% if notification.seen == '0' %} not_seen {% endif %}">
+		  		{% include 'users/' ~ notification.name ~ '.html' %}
+		  	</li>
+		  	{% endfor %}
+		</ul>
+		{% else %}
+		<p>Aucune notification disponible pour l'instant.</p>
+		{% endif %}
+	</div>
+
+{% endblock %}

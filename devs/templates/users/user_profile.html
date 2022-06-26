@@ -1,0 +1,193 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    {% if current_user.has_been_confirmed == False %}
+        <div class="col-md-6 alert alert-primary alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <a href="{{ url_for('users.confirm_account_email') }}"><span class="text-info">{{_('Cliquez pour confirmer votre compte')}}</span></a>
+        </div>
+    {% endif %}
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Profil de {{ user.pseudo }} - 
+                        ( {{ user.friends()|length }} {% if user.friends()|length > 1 %} {{ _('amis') }} {% else %} {{ _('ami') }} {% endif %} )</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img alt="image de profil de {{ user.pseudo }}"
+                                 class="rounded-circle avatar-md"
+                                 src="
+                                {% if user.profile_img %}
+                                  {{ url_for('static', filename='img/users/profile_pics/' ~ user.id ~ '/' ~ user.profile_img) }}
+                                {% else %}
+                                    {{ user.set_avatar(100) }}
+                                {% endif %}
+                            ">
+                        </div>
+                        <div class="col-sm-6">
+                            {% if user.id != current_user.id %}
+                                {% include 'users/_relation_links.html' %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <strong>{{ user.pseudo }}</strong><br>
+                            <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+                            {% if user.city and user.country %}
+                            <i class="fa fa-location-arrow"></i>&nbsp;{{ user.city }} - {{ user.country }} <br>
+                            {% endif %}
+                            <a href="https://www.google.com/maps?q={{ user.city }}+{{ user.country }}" target="_blank">{{
+                                _('Voir sur Google Maps') }}</a>
+                        </div>
+                        <div class="col-sm-6">
+                            {% if user.twitter %}
+                            <i class="fa fa-twitter"></i>&nbsp;<a href="//twitter.com/{{ user.twitter }}">@{{
+                            user.twitter }}</a><br>
+                            {% endif %}
+
+                            {% if user.github %}
+                            <i class="fa fa-github"></i>&nbsp;<a href="//github.com/{{ user.github }}">{{ user.github
+                            }}</a><br>
+                            {% endif %}
+
+                            {% if user.sex == "H" %} <i class="fa fa-male"></i> {% else %} <i class="fa fa-female"></i>
+                            {% endif %}
+
+                            {% if user.available_for_hiring %}
+                            {{ _('Disponible pour emploi') }}
+                            {% else %}
+                            {{ _('Non disponible pour emploi') }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 card card-body bg-light">
+                            <h5> {{ _('Petite biographie de %(username)s!', username=user.name) }} </h5>
+                            <p>
+                                {% if user.bio %}
+                                {% for line in user.bio.split('\n')%}
+                                <br/>{{ line }}
+                                {% endfor %}
+                                {% else %}
+                                {{ _('Aucune biographie pour le moment...') }}
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            {% if user == current_user %}
+            <div class="status-post">
+                <form data-parsley-validate method="post">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        <label class="sr-only" for="content">{{ _('statut:') }}</label>
+                        {{ form.content(rows='3', class='form-control', placeholder=_('Alors quoi de neuf?'),
+                        **{'data-parsley-minlength': '3', 'data-parsley-maxlength': '140'}) }}
+                    </div>
+                    <div class="form-group status-post-submit">
+                        <input class="btn btn-outline-primary btn-sm" name="publish" type="submit"
+                               value="{{ _('Publier') }}">
+                    </div>
+                </form>
+            </div>
+            {% endif %}
+            {% if posts|length != 0 %}
+            {% for post in posts %}
+            {% include 'posts/_post.html' %}
+            {% endfor %}
+            {% else %}
+            <p>{{ _(" Cet utilisateur n'a encore rien poste ") }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block custom_script %}
+
+{# Parsley Js #}
+<script src="{{ url_for('static', filename='libraries/parsley/parsley.min.js') }}"></script>
+<script src="{{ url_for('static', filename='libraries/parsley/i18n/' ~ g.locale ~ '.js') }}"></script>
+
+{# Sweetalert Js #}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $('[data-confirm]').on('click', function(e) {
+        e.preventDefault();
+        let href = e.target.href;
+        Swal.fire({
+          icon: 'warning',
+          title: "{{ _('Êtes-vous sûr ?') }}",
+          text: "{{ _('Voulez-vous vraiment supprimer cette publication ?') }}",
+          showCancelButton: true,
+          cancelButtonText: "{{ _('Annuler') }}",
+          showConfirmButton: true,
+          confirmButtonText: "{{ _('Oui') }}",
+          confirmButtonColor: "#DD6B55",
+        }).then((result) => {
+              if (result.isConfirmed) {
+                Swal.fire(
+                  "{{ _('Supprimé') }}",
+                  "{{ _('Votre publication a été supprimée') }}",
+                  'success',
+                );
+                window.location.href = href;
+              }
+          });
+    });
+
+
+    $("a.like").on("click", function(e){
+        e.preventDefault();
+        
+        let id =  $(this).attr("id");
+        let action = $(this).data("action");
+        let post_id = id.split("like")[1];
+        
+        let url = "/users/"+action+"-"+"post"+"/"+post_id+"/"
+        console.log(action, post_id, url)
+
+        $.ajax({
+            url : url,
+            type : 'GET',
+            success : function(response) {
+                if (action == "like") {
+                  $("#" + id).html("{{_("Je n'aime plus")}}").data("action", 'unlike');  
+                }
+                else {
+                    $("#" + id).html("{{_("J'aime")}}").data("action", 'like');
+                }
+            }
+        });        
+        
+    });
+
+
+    function translate(text, destElem, source_language, dest_language) {
+        $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
+        $.post('/translate/post/', {
+            text: text,
+            source_language: source_language,
+            dest_language: dest_language
+        }).done(function(response) {
+            $(destElem).text(response['text'])
+        }).fail(function() {
+            $(destElem).text("{{ _('Erreur : impossible de traduire la publication.') }}");
+        });
+    }
+</script>
+
+{% endblock %}
